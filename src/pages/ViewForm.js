@@ -17,7 +17,7 @@ const ViewForm = () => {
 
     useEffect(() => {
         const fetchForm = async () => {
-            await axios.get(`http://localhost:5000/api/forms/${id}`)
+            await axios.get(`https://frozen-river-29677.herokuapp.com/api/forms/${id}`)
                 .then(res => {
                     if (res.data) {
                         setForm(res.data);
@@ -48,7 +48,7 @@ const ViewForm = () => {
             data
         }
 
-        await axios.post("http://localhost:5000/api/reports/", {
+        await axios.post("https://frozen-river-29677.herokuapp.com/api/reports/", {
             data: doc
         })
             .then(res => {

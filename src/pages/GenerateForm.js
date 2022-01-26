@@ -59,7 +59,7 @@ const GenerateForm = () => {
             formName: e.target.formName.value,
             fields: inputFields,
         }
-        await axios.post("http://localhost:5000/api/forms", {
+        await axios.post("https://frozen-river-29677.herokuapp.com/api/forms", {
             data: data
         })
             .then(res => {

@@ -13,7 +13,7 @@ const Reports = () => {
     useEffect(() => {
         //fetch form by form id
         const fetchForm = async () => {
-            await axios.get(`http://localhost:5000/api/forms/${formId}`)
+            await axios.get(`https://frozen-river-29677.herokuapp.com/api/forms/${formId}`)
                 .then(res => {
                     if (res.data) {
                         setForm(res.data);
@@ -25,7 +25,7 @@ const Reports = () => {
 
         //fetch reports by form id
         const fetchReports = async () => {
-            await axios.get(`http://localhost:5000/api/reports?formId=${formId}`)
+            await axios.get(`https://frozen-river-29677.herokuapp.com/api/reports?formId=${formId}`)
                 .then(res => {
                     if (res.data) {
                         setReports(res.data)
@@ -37,7 +37,6 @@ const Reports = () => {
 
     }, [formId])
 
-    console.log(reports);
     return (
         <Container>
             {/* check form data available or not */}
@@ -49,10 +48,7 @@ const Reports = () => {
                             <th>#</th>
                             {/* show table heading */}
                             {
-                                form?.fields.map(field => <>
-                                    <th>{field.label}</th>
-                                </>
-                                )
+                                form?.fields.map((field, i) => <th key={i}>{field.label}</th>)
                             }
 
                         </tr>
@@ -61,7 +57,7 @@ const Reports = () => {
                         {/* show reports */}
                         {
                             reports?.map((report, i) =>
-                                < tr key={i} >
+                                <tr key={i} >
                                     <td>{i + 1}</td>
                                     {/* show data with heading serial */}
                                     {

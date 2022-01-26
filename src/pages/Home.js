@@ -10,7 +10,7 @@ const Home = () => {
     useEffect(() => {
         //fetch all forms
         const fetchForms = async () => {
-            await axios.get("http://localhost:5000/api/forms")
+            await axios.get("https://frozen-river-29677.herokuapp.com/api/forms")
                 .then(res => {
                     if (res.data) {
                         //set at forms state
